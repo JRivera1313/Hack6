@@ -52,28 +52,31 @@ void lowercaseName(Game *game){
 void destroyGame(Game **Game)
 {
   free((*Game)->name);
+  printf("Name destroyed\n" );
   free((*Game)->publisher);
-  free((*Game));
+  *Game = NULL;
 }
 
 Game *getEarliestYear(Game **games, int size){
-  Game EaryYear = games[0]
+  Game *EaryYear = games[0];
   for (int i = 0; i < size; i++) {
     //lowercaseName(games[i]);
     if (games[i]->publish_year < EaryYear->publish_year ) {
       EaryYear = games[i];
     }
   }
+  return EaryYear;
 }
 
 Game* getLastGameName(Game** games, int size){
-  Game EaryYear = games[0]
+  Game *EaryYear = games[0];
   for (int i = 0; i < size; i++) {
     //lowercaseName(games[i]);
-    if (strsmp(games[i]->name,EaryYear->name) < 0 ) {
+    if (strcmp(games[i]->name,EaryYear->name) > 0 ) {
       EaryYear = games[i];
     }
   }
+  return  EaryYear;
 }
 
 int main()
@@ -83,13 +86,13 @@ int main()
    Game *TestGame = createGame(TestName,TestPublisher, 2000);
    printGame(TestGame);
 
-   char TestCAPS[]="TESTCAPS";
+   char TestCAPS[]="DOOM";
 
    Game *TestGameCAPS = createGame(TestCAPS,TestPublisher, 1234);
    lowercaseName(TestGameCAPS);
 
    printGame(TestGameCAPS);
-
+   destroyGame(&TestGame);
 
   return 0;
 }
