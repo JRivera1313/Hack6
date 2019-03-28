@@ -12,27 +12,25 @@
 
 Game *createGame(char *name, char *publisher, int publish_year)
 {
-   //A hint for how to approach this
   Game *new_game = (Game *)malloc(sizeof(Game *) * 1);
   new_game->name = (char *)malloc(sizeof(char) * (strlen(name) + 1)); //Allocate enough memory to copy the name (plus 1 for the null-termination character)!
   strcpy(new_game->name, name);                                       //Copy the name into the Game struct. This is done instead of new_game.name = name because it will become read-only otherwise.
 
-  new_game->publisher = (char *)malloc(sizeof(char) * (strlen(publisher) + 1)); //Allocate enough memory to copy the name (plus 1 for the null-termination character)!
-  strcpy(new_game->publisher, publisher);                                       //Copy the name into the Game struct. This is done instead of new_game.name = name because it will become read-only otherwise.
+  new_game->publisher = (char *)malloc(sizeof(char) * (strlen(publisher) + 1));
+  strcpy(new_game->publisher, publisher);                                       .
 
-  Game *new_game = (Game *)malloc(sizeof(Game *) * 1);
-  new_game->publish_year = (char *)malloc(sizeof(char) * (strlen(publish_year) + 1)); //Allocate enough memory to copy the name (plus 1 for the null-termination character)!
-  strcpy(new_game->publish_year, name);                                       //Copy the name into the Game struct. This is done instead of new_game.name = name because it will become read-only otherwise.
-
+  new_game->publish_year = publish_year;
 
   return new_game;
 }
 void printGame(Game *Game){
-
+  printf("%s\n", Game->name);
+  printf("%s\n", Game->publisher);
+  printf("%d\n", Game->publish_year);
 }
 
 void changePublishYear(Game *game, int new_count){
-
+  game->publish_year = new_count;
 }
 
 void changePublisher(Game *game, char *new_publisher){
