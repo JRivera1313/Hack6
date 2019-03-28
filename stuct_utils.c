@@ -45,14 +45,15 @@ void lowercaseName(Game *game){
   for (int i = 0; i < length; i++) {
     if (isupper(game->name[i]) == 1) {
       game->name[i] = tolower(game->name[i]);
-
     }
   }
 }
 
 void destroyGame(Game **Game)
 {
-  free((*Game)->name);//A hint for how to approach this
+  free((*Game)->name);
+  free((*Game)->publisher);
+  free((*Game));
 }
 
 Game *getEarliestYear(Game **games, int size){
