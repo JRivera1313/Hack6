@@ -17,24 +17,44 @@ Game *createGame(char *name, char *publisher, int publish_year)
   new_game->name = (char *)malloc(sizeof(char) * (strlen(name) + 1)); //Allocate enough memory to copy the name (plus 1 for the null-termination character)!
   strcpy(new_game->name, name);                                       //Copy the name into the Game struct. This is done instead of new_game.name = name because it will become read-only otherwise.
 
+  new_game->publisher = (char *)malloc(sizeof(char) * (strlen(publisher) + 1)); //Allocate enough memory to copy the name (plus 1 for the null-termination character)!
+  strcpy(new_game->publisher, publisher);                                       //Copy the name into the Game struct. This is done instead of new_game.name = name because it will become read-only otherwise.
+
+  Game *new_game = (Game *)malloc(sizeof(Game *) * 1);
+  new_game->publish_year = (char *)malloc(sizeof(char) * (strlen(publish_year) + 1)); //Allocate enough memory to copy the name (plus 1 for the null-termination character)!
+  strcpy(new_game->publish_year, name);                                       //Copy the name into the Game struct. This is done instead of new_game.name = name because it will become read-only otherwise.
+
+
   return new_game;
 }
-void printGame(Game *Game){}
+void printGame(Game *Game){
 
-void changePublishYear(Game *game, int new_count){}
+}
 
-void changePublisher(Game *game, char *new_publisher){}
+void changePublishYear(Game *game, int new_count){
 
-void lowercaseName(Game *game){}
+}
+
+void changePublisher(Game *game, char *new_publisher){
+
+}
+
+void lowercaseName(Game *game){
+
+}
 
 void destroyGame(Game **Game)
 {
   free((*Game)->name);//A hint for how to approach this
 }
 
-Game *getEarliestYear(Game **games, int size){}
+Game *getEarliestYear(Game **games, int size){
 
-Game* getLastGameName(Game** games, int size){}
+}
+
+Game* getLastGameName(Game** games, int size){
+
+}
 
 int main()
 {
