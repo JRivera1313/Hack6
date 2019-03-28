@@ -60,7 +60,6 @@ void destroyGame(Game **Game)
 Game *getEarliestYear(Game **games, int size){
   Game *EaryYear = games[0];
   for (int i = 0; i < size; i++) {
-    //lowercaseName(games[i]);
     if (games[i]->publish_year < EaryYear->publish_year ) {
       EaryYear = games[i];
     }
