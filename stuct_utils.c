@@ -34,7 +34,9 @@ void changePublishYear(Game *game, int new_count){
 }
 
 void changePublisher(Game *game, char *new_publisher){
-
+  //Creates enough memory space for new publisher name
+  game->publisher = (*char)realloc(game->publisher, sizeof(char) * (strlen(new_publisher) + 1) )
+  strcpy(game->publisher, new_publisher);
 }
 
 void lowercaseName(Game *game){
