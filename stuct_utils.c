@@ -19,17 +19,23 @@ Game *createGame(char *name, char *publisher, int publish_year)
 
   return new_game;
 }
+void printGame(Game *Game){}
 
 void changePublishYear(Game *game, int new_count){}
+
 void changePublisher(Game *game, char *new_publisher){}
+
 void lowercaseName(Game *game){}
-void printGame(Game *Game){}
+
 void destroyGame(Game **Game)
 {
   free((*Game)->name);//A hint for how to approach this
 }
+
 Game *getEarliestYear(Game **games, int size){}
+
 Game* getLastGameName(Game** games, int size){}
+
 int main()
 {
    //Feel free to use this as your testbed.
