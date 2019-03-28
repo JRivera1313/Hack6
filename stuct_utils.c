@@ -17,7 +17,7 @@ Game *createGame(char *name, char *publisher, int publish_year)
   strcpy(new_game->name, name);                                       //Copy the name into the Game struct. This is done instead of new_game.name = name because it will become read-only otherwise.
 
   new_game->publisher = (char *)malloc(sizeof(char) * (strlen(publisher) + 1));
-  strcpy(new_game->publisher, publisher);                                       .
+  strcpy(new_game->publisher, publisher);
 
   new_game->publish_year = publish_year;
 
@@ -35,12 +35,19 @@ void changePublishYear(Game *game, int new_count){
 
 void changePublisher(Game *game, char *new_publisher){
   //Creates enough memory space for new publisher name
-  game->publisher = (*char)realloc(game->publisher, sizeof(char) * (strlen(new_publisher) + 1) )
+  game->publisher = (char*)realloc(game->publisher, sizeof(char) * (strlen(new_publisher) + 1) );
   strcpy(game->publisher, new_publisher);
 }
 
 void lowercaseName(Game *game){
+  int length = strlen(game->name);
 
+  for (int i = 0; i < length; i++) {
+    if (isupper(game->name[i]) == 1) {
+      game->name[i] = tolower(game->name[i]);
+
+    }
+  }
 }
 
 void destroyGame(Game **Game)
@@ -58,6 +65,18 @@ Game* getLastGameName(Game** games, int size){
 
 int main()
 {
-   //Feel free to use this as your testbed.
+  char TestName[]="TestName";
+  char TestPublisher[] ="TestPublisher";
+   Game *TestGame = createGame(TestName,TestPublisher, 2000);
+   printGame(TestGame);
+
+   char TestCAPS[]="TESTCAPS";
+
+   Game *TestGameCAPS = createGame(TestCAPS,TestPublisher, 1234);
+   lowercaseName(TestGameCAPS);
+
+   printGame(TestGameCAPS);
+
+
   return 0;
 }
