@@ -3,7 +3,10 @@
   * Author(s): Jesus Rivea III
   * Date: 03/28/2019
   *
-  *
+  * Helper functions that act as a Libary. THe functions preform
+  * various things such as creating structers for data or changing the data in
+  * an aready created game stuct. Look to the function defnitions below
+  * for an discription of what it does.
   *
   *
 */
@@ -21,6 +24,7 @@ typedef struct
   char *publisher;
   int publish_year;
 } Game;
+
 // given  title, author, word count, outputs a Game struct that contains said information.
 Game *createGame (char *name, char *publisher, int publish_year);
 
